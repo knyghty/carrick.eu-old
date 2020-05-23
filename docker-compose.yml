@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+    depends_on:
+      - postgres
+    env_file:
+      - ".env"
+    ports:
+      - "443:443"
+    volumes:
+      - ".:/app"
+
+  postgres:
+    env_file:
+      - ".env"
+    image: postgres:11-alpine
+    volumes:
+      - .data/postgres:/var/lib/postgresql/data:rw,z

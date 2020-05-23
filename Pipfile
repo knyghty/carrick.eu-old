@@ -1,0 +1,33 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+bandit = "*"
+black = "==19.10b0"
+doc8 = "*"
+flake8 = "*"
+flake8-bugbear = "*"
+flake8-docstrings = "*"
+hypothesis = "*"
+isort = "*"
+model-bakery = "*"
+pytest = "*"
+pytest-coverage = "*"
+pytest-django = "*"
+sphinx = "*"
+
+[packages]
+dj-database-url = "*"
+django = {version = "~=3.0", extras = ["argon2"]}
+django-debug-toolbar = "*"
+django-extensions = "*"
+gunicorn = "*"
+ipython = "*"
+psycopg2 = "*"
+ptpython = "*"
+whitenoise = {version = "*", extras = ["brotli"]}
+
+[requires]
+python_version = "3.8"
