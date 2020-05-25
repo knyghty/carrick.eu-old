@@ -25,6 +25,7 @@ django-debug-toolbar = "*"
 django-extensions = "*"
 gunicorn = "*"
 ipython = "*"
+jinja2 = "*"
 psycopg2 = "*"
 ptpython = "*"
 whitenoise = {version = "*", extras = ["brotli"]}
