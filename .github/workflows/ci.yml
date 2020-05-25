@@ -35,7 +35,7 @@ jobs:
           python -m pip install --upgrade pip pipenv
           pipenv install --dev --system --deploy
       - name: Run collectstatic
-        run: python manage.py collecstatic --noinput
+        run: python manage.py collectstatic --noinput
       - name: Run black
         run: black . --check
       - name: Run flake8
