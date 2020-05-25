@@ -40,8 +40,11 @@ SESSION_COOKIE_SECURE = True
 
 AUTH_USER_MODEL = "accounts.User"
 
+APPEND_SLASH = False
+
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
+    "carrick.apps.CarrickConfig",
     "debug_toolbar",
     "django_extensions",
     "django.contrib.admin",
@@ -67,6 +70,12 @@ MIDDLEWARE = [
 ROOT_URLCONF = "carrick.urls"
 
 TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {"environment": "carrick.jinja2.environment"},
+    },
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [],
