@@ -12,4 +12,4 @@ def test_homepage_works(client):
 def test_sitemap_has_homepage(client):
     response = client.get("/sitemap.xml")
     assert response.status_code == 200
-    assertContains(response, "<loc>https://example.com/</loc>")
+    assertContains(response, "<loc>https://carrick.eu/</loc>")
