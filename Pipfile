@@ -14,7 +14,7 @@ hypothesis = "*"
 isort = "*"
 model-bakery = "*"
 pytest = "*"
-pytest-coverage = "*"
+pytest-cov = "*"
 pytest-django = "*"
 sphinx = "*"
 
