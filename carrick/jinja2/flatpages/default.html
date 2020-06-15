@@ -1,0 +1,17 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}{{ flatpage.title }} &mdash; {{ super() }}{% endblock %}
+
+{% block main %}
+  <section class="content-area">
+    <header class="content-header">
+      {% block content_header %}
+        <h1>{{ flatpage.title }}</h1>
+      {% endblock %}
+    </header>
+
+    <section class="content">
+      {{ flatpage.content }}
+    </section>
+  </section>
+{% endblock main %}

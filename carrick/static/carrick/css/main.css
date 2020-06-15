@@ -2,13 +2,146 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #222;
-    color: #eee;
+/* Generic elements. */
 
-    margin-top: 60px;
+a:link {
+    color: #36a4ff;
+}
+
+a:visited {
+    color: #9b59d0;
+}
+
+a:focus,
+a:hover {
+    color: #384cff;
+}
+
+h1 {
+    margin: 0;
+
+    font-family: Georgia, serif;
+}
+
+p {
+    /* Works out as 1.5x the line-height, minimum for WCAG AAA. */
+    margin: 1.5rem 0;
+}
+
+small {
+    /* 16px - the minimum size for any text. */
+    font-size: 0.8rem;
+}
+
+/* Global stuff. */
+
+html {
+    height: 100%;
+
+    background: #eee;
+    color: #222;
 
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-    text-align: center;
+    font-size: 18px;
+    line-height: 1.5; /* Minimum for WCAG AAA. */
+}
+
+body {
+    display: grid;
+    grid:
+        "site-header" min-content
+        "main" auto
+        "footer" min-content;
+    margin: 0;
+    min-height: 100%;
+}
+
+/* Site header. */
+
+.site-header {
+    grid-area: site-header;
+    padding: 10px;
+
+    color: #000;
+}
+
+.site-header a:link,
+.site-header a:visited {
+    color: #000;
+
+    text-decoration: none;
+}
+
+.home-link {
+    margin-left: -1em;
+}
+
+.home-link:focus {
+    color: #384cff;
+
+    text-decoration: underline;
+}
+
+.logo {
+    height: 1.5em;
+    width: 3.2em;
+}
+
+.logo .c {
+    transition: transform 0.5s ease-out;
+}
+
+.home-link:focus .c,
+.home-link:hover .c {
+    transform: translateX(3em);
+}
+
+/* Main area. */
+
+main {
+    grid-area: main;
+}
+
+.content-area {
+    display: grid;
+    grid:
+        "content-header content-header content-header" min-content
+        ". content ." auto
+        / auto fit-content(30em) auto;
+}
+
+.content-header {
+    grid-area: content-header;
+    margin-bottom: 40px;
+    padding: 80px 50px 50px 50px;
+
+    background: #000;
+    color: #fff;
+
+    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
+}
+
+.strapline {
+    font-size: 0.9em;
+}
+
+.content {
+    grid-area: content;
+}
+
+.content a[href^='https://']::after,
+.content a[href^='http://']::after
+{
+    content: " 🌐";
+    font-size: 0.8rem;
+}
+
+/* Site footer. */
+
+.site-footer {
+    grid-area: footer;
+    padding: 10px;
+
+    background: #000;
+    color: #fff;
 }

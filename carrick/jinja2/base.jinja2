@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <meta charset="utf-8">
+  <title>{% block title %}Tom Carrick{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block meta %}
+    <meta name="author" content="Tom Carrick">
+  {% endblock meta %}
+
+  {% block css %}
+    <link rel="stylesheet" href="{{ static('carrick/css/main.css') }}">
+  {% endblock css %}
+
+  <link rel="icon" href="{{ static('carrick/img/logo.svg') }}" type="image/svg+xml">
+
+  <body>
+    <header class="site-header">
+      <a href="/" class="home-link">{{ logo|safe }} Tom Carrick</a>
+      <nav></nav>
+    </header>
+
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      © Tom Carrick
+    </footer>
+  </body>
+</html>

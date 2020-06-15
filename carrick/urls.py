@@ -2,10 +2,11 @@
 
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.flatpages.views import flatpage
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 
-from . import sitemaps, views
+from . import sitemaps
 
 
 sitemaps = {
@@ -14,7 +15,7 @@ sitemaps = {
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.HomeView.as_view(), name="home"),
+    path("", flatpage, {"url": "/"}, name="home"),
     path(
         "sitemap.xml",
         sitemap,

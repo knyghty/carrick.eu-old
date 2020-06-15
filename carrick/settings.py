@@ -11,13 +11,19 @@ import dj_database_url
 BASE_DIR = pathlib.Path(__file__).resolve(strict=True).parent.parent
 
 
+def as_bool(value):
+    if isinstance(value, bool):
+        return value
+    return value.lower() in {"1", "true"}
+
+
 # Security
 
 ALLOWED_HOSTS = [".carrick.eu", "carrick.localhost"]
 
 CSRF_COOKIE_SECURE = True
 
-DEBUG = os.getenv("DEBUG", "0").lower() in {"1", "true"}
+DEBUG = as_bool(os.getenv("DEBUG", "0"))
 
 ENVIRONMENT = os.getenv("ENVIRONMENT", "production")
 
@@ -50,21 +56,22 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sessions",
+    "django.contrib.flatpages",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.sessions",
     "django.contrib.sitemaps",
     "django.contrib.sites",
+    "django.contrib.staticfiles",
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -159,9 +166,8 @@ LOGGING = {
 
 # Django Debug Toolbar.
 
+ENABLE_DEBUG_TOOLBAR = as_bool(os.getenv("ENABLE_DEBUG_TOOLBAR", DEBUG))
 
-def show_toolbar(request):
-    return DEBUG and request.user.is_superuser
+INTERNAL_IPS = os.getenv("INTERNAL_IPS", "").split(",")
 
-
-DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "carrick.settings.show_toolbar"}
+DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "carrick.utils.show_toolbar"}
