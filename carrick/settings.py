@@ -19,7 +19,7 @@ def as_bool(value):
 
 # Security
 
-ALLOWED_HOSTS = [".carrick.eu", "carrick.localhost"]
+ALLOWED_HOSTS = [".carrick.eu", "carrick-eu-staging.herokuapp.com", "carrick.localhost"]
 
 CSRF_COOKIE_SECURE = True
 
