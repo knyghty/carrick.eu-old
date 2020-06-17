@@ -110,7 +110,7 @@ WSGI_APPLICATION = "carrick.wsgi.application"
 DATABASES = {"default": dj_database_url.config(conn_max_age=None)}
 
 
-# Password validation.
+# Passwords.
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -122,6 +122,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+]
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
 ]
 
 
