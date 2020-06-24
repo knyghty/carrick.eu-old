@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "carrick.apps.CarrickConfig",
     "debug_toolbar",
     "django_extensions",
+    "snakeoil",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -178,3 +179,24 @@ ENABLE_DEBUG_TOOLBAR = as_bool(os.getenv("ENABLE_DEBUG_TOOLBAR", DEBUG))
 INTERNAL_IPS = os.getenv("INTERNAL_IPS", "").split(",")
 
 DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "carrick.utils.show_toolbar"}
+
+
+# Snakeoil.
+
+SNAKEOIL_DEFAULT_TAGS = {
+    "default": {
+        "author": "Tom Carrick",
+        "og:image": "static:carrick/img/logo.png",
+        "og:image:alt": "Tom Carrick",
+        "og:image:width": "300",
+        "og:image:height": "300",
+        "og:locale": "en_GB",
+        "og:site_name": "Tom Carrick",
+        "og:title": "Tom Carrick",
+        "og:type": "website",
+        "og:url": "https://carrick.eu/",
+        "twitter:card": "summary",
+        "twitter:creator": "@knyghty",
+        "twitter:site": "@knyghty",
+    }
+}

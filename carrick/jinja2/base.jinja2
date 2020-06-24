@@ -5,7 +5,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% block meta %}
-    <meta name="author" content="Tom Carrick">
+    {% with meta_tags=get_meta_tags() %}
+        {% include "snakeoil/seo.jinja2" %}
+      {% endwith %}
   {% endblock meta %}
 
   {% block css %}
