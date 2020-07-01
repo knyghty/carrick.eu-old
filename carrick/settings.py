@@ -184,19 +184,19 @@ DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "carrick.utils.show_toolbar"}
 # Snakeoil.
 
 SNAKEOIL_DEFAULT_TAGS = {
-    "default": {
-        "author": "Tom Carrick",
-        "og:image": "static:carrick/img/logo.png",
-        "og:image:alt": "Tom Carrick",
-        "og:image:width": "300",
-        "og:image:height": "300",
-        "og:locale": "en_GB",
-        "og:site_name": "Tom Carrick",
-        "og:title": "Tom Carrick",
-        "og:type": "website",
-        "og:url": "https://carrick.eu/",
-        "twitter:card": "summary",
-        "twitter:creator": "@knyghty",
-        "twitter:site": "@knyghty",
-    }
+    "default": [
+        {"name": "author", "content": "Tom Carrick"},
+        {"property": "og:image", "static": "carrick/img/logo.png"},
+        {"property": "og:image:alt", "content": "Tom Carrick"},
+        {"property": "og:image:width", "content": "300"},
+        {"property": "og:image:height", "content": "300"},
+        {"property": "og:locale", "content": "en_GB"},
+        {"property": "og:site_name", "content": "Tom Carrick"},
+        {"property": "og:title", "content": "Tom Carrick"},
+        {"property": "og:type", "content": "website"},
+        {"property": "og:url", "content": "https://carrick.eu/"},
+        {"name": "twitter:card", "content": "summary"},
+        {"name": "twitter:creator", "content": "@knyghty"},
+        {"name": "twitter:site", "content": "@knyghty"},
+    ]
 }
