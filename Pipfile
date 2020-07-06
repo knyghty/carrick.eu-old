@@ -29,6 +29,7 @@ ipython = "*"
 jinja2 = "*"
 psycopg2 = "*"
 ptpython = "*"
+sentry-sdk = "*"
 whitenoise = {version = "*", extras = ["brotli"]}
 
 [requires]
