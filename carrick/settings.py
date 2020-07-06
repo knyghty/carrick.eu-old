@@ -6,6 +6,8 @@ import pathlib
 from django.core.management.utils import get_random_secret_key
 
 import dj_database_url
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 
 BASE_DIR = pathlib.Path(__file__).resolve(strict=True).parent.parent
@@ -179,6 +181,16 @@ ENABLE_DEBUG_TOOLBAR = as_bool(os.getenv("ENABLE_DEBUG_TOOLBAR", DEBUG))
 INTERNAL_IPS = os.getenv("INTERNAL_IPS", "").split(",")
 
 DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "carrick.utils.show_toolbar"}
+
+
+# Sentry.
+
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    environment=os.getenv("ENVIRONMENT", "unknown"),
+    integrations=[DjangoIntegration()],
+    send_default_pii=True,
+)
 
 
 # Snakeoil.
