@@ -190,6 +190,7 @@ sentry_sdk.init(
     environment=os.getenv("ENVIRONMENT", "unknown"),
     integrations=[DjangoIntegration()],
     send_default_pii=True,
+    traces_sample_rate=1.0,
 )
 
 
