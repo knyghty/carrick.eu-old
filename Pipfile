@@ -23,7 +23,7 @@ dj-database-url = "*"
 django = {version = "==3.1rc1", extras = ["argon2"]}
 django-debug-toolbar = "*"
 django-extensions = "*"
-django-snakeoil = "==1.0b6"
+django-snakeoil = "*"
 gunicorn = "*"
 ipython = "*"
 jinja2 = "*"
